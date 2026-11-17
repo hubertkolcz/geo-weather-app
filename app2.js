@@ -1,3 +1,4 @@
+// Requires the GOOGLE_API_KEY environment variable (a Google Geocoding API key).
 const yargs = require('yargs');
 const axios = require('axios');
 
@@ -17,7 +18,7 @@ const argv = yargs
     .argv;
 
 let encodedAddress = encodeURIComponent(argv.address);
-let geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyBDz017lqNk-v61NsNfIgETXxjK0v8BrWQ`;
+let geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${process.env.GOOGLE_API_KEY}`;
 
 
 
